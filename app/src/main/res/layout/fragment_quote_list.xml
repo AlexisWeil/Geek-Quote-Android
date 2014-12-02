@@ -33,4 +33,11 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp" />
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:id="@+id/quotes_list"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
