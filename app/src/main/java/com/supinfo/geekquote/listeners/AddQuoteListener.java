@@ -11,6 +11,8 @@ import com.supinfo.geekquote.adapters.QuotesListAdapter;
 import com.supinfo.geekquote.fragments.QuoteListFragment;
 import com.supinfo.geekquote.models.Quote;
 
+import java.util.LinkedList;
+
 /**
  * Created by alexis on 02/12/14.
  */
@@ -31,8 +33,9 @@ public class AddQuoteListener implements Button.OnClickListener {
     public void onClick(View view) {
         String strQuote = this.quoteEditText.getText().toString();
 
-        quotesListAdapter.getQuotes().add(new Quote(strQuote));
-        quotesListAdapter.notifyItemInserted(quotesListAdapter.getItemCount() - 1);
+
+        quotesListAdapter.getQuotes().addFirst(new Quote(strQuote));
+        quotesListAdapter.notifyItemInserted(0);
     }
 
 }

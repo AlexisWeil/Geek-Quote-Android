@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.supinfo.geekquote.R;
 import com.supinfo.geekquote.models.Quote;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,9 +31,9 @@ public class QuotesListAdapter extends RecyclerView.Adapter<QuotesListAdapter.Qu
         }
     }
 
-    private List<Quote> quotes;
+    private LinkedList<Quote> quotes;
 
-    public QuotesListAdapter(List<Quote> quotes) {
+    public QuotesListAdapter(LinkedList<Quote> quotes) {
         this.quotes = quotes;
     }
 
@@ -60,7 +61,7 @@ public class QuotesListAdapter extends RecyclerView.Adapter<QuotesListAdapter.Qu
         return quotes.size();
     }
 
-    public List<Quote> getQuotes() {
+    public LinkedList<Quote> getQuotes() {
         return quotes;
     }
 }

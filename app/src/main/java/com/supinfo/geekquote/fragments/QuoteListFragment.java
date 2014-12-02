@@ -1,10 +1,12 @@
 package com.supinfo.geekquote.fragments;
 
 import android.app.Fragment;
+import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,11 @@ import com.supinfo.geekquote.R;
 import com.supinfo.geekquote.adapters.QuotesListAdapter;
 import com.supinfo.geekquote.listeners.AddQuoteListener;
 import com.supinfo.geekquote.models.Quote;
+import com.supinfo.geekquote.outlines.RoundButtonOutline;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -25,7 +30,7 @@ import java.util.List;
  */
 public class QuoteListFragment extends Fragment {
 
-    private final List<Quote> quotes = new ArrayList<Quote>();
+    private final LinkedList<Quote> quotes = new LinkedList<Quote>();
     private LinearLayout linearLayout;
 
     @Override
@@ -48,6 +53,14 @@ public class QuoteListFragment extends Fragment {
 
         Button addQuoteButton = (Button) linearLayout.findViewById(R.id.add_quote_button);
         addQuoteButton.setOnClickListener(new AddQuoteListener(this, view, quotesListAdapter));
+
+        int fabSize = getResources().getDimensionPixelSize(R.dimen.fab_button_size);
+        Button fabButton = (Button) view.findViewById(R.id.fab_button);
+        fabButton.setOutlineProvider(new RoundButtonOutline(fabSize));
+        fabButton.setClipToOutline(true);
+
+        Log.d("geekquote", "Elevation : " + fabButton.getElevation());
+        System.out.println("Elevation : " + fabButton.getElevation());
 
         return view;
     }

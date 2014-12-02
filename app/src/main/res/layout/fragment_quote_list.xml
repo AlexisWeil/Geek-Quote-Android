@@ -1,45 +1,68 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".QuoteListActivity$PlaceholderFragment"
-    android:id="@+id/base_list_layout"
-    android:orientation="vertical">
-
+    android:layout_height="match_parent">
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp">
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/add_quote_content"
-            android:layout_weight="1"
-            android:inputType="text"
-            android:layout_marginRight="20dp"
-            android:text="sgdg"
-            android:textColor="@android:color/background_dark" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_quote"
-            android:id="@+id/add_quote_button"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp" />
-    </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:id="@+id/quotes_recycler_view"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context=".QuoteListActivity$PlaceholderFragment"
+        android:id="@+id/base_list_layout"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/add_quote_content"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:layout_marginRight="20dp"
+                android:hint="Enter quote"
+                android:textColor="@android:color/background_dark" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_quote"
+                android:id="@+id/add_quote_button"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:id="@+id/quotes_recycler_view"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="@dimen/fab_button_size"
+        android:layout_height="@dimen/fab_button_size"
+        android:id="@+id/fab_button"
+        android:layout_margin="@dimen/fab_button_margin"
+        android:background="@drawable/ripple"
+        android:text="+"
+        android:textSize="@dimen/fab_button_text_size"
+        android:fontFamily="sans-serif-light"
+        android:elevation="3dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:stateListAnimator="@null"/>
+</RelativeLayout>
