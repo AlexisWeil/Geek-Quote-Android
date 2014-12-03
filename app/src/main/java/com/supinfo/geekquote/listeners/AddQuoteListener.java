@@ -10,6 +10,7 @@ import com.supinfo.geekquote.R;
 import com.supinfo.geekquote.adapters.QuotesListAdapter;
 import com.supinfo.geekquote.fragments.QuoteListFragment;
 import com.supinfo.geekquote.models.Quote;
+import com.supinfo.geekquote.tasks.AddQuoteTask;
 
 import java.util.LinkedList;
 
@@ -33,9 +34,13 @@ public class AddQuoteListener implements Button.OnClickListener {
     public void onClick(View view) {
         String strQuote = this.quoteEditText.getText().toString();
 
+        Quote q = new Quote(strQuote);
+        q.setRating(3);
 
-        quotesListAdapter.getQuotes().addFirst(new Quote(strQuote));
-        quotesListAdapter.notifyItemInserted(0);
+        new AddQuoteTask(quotesListAdapter).execute(
+            "http://geekquote.cleverapps.io/rest/quotes",
+            q
+        );
     }
 
 }
